@@ -160,6 +160,17 @@ footer {
     padding-bottom: 15px;
 }
 
+/* Faded older experience items */
+.faded-item {
+    opacity: 0.5; /* Makes the item 50% transparent */
+    transition: opacity 0.3s ease; /* Smooth transition */
+}
+
+/* Brings the item back to full visibility when the mouse hovers over it */
+.faded-item:hover {
+    opacity: 1;
+}
+
 .edu-item:last-child {
     border-bottom: none;
 }
@@ -190,15 +201,45 @@ footer {
 }
 
 /* 7. Skills & Research Interests */
-.skill-category {
-    margin-bottom: 30px;
+.skills-grid {
+    display: grid;
+    /* Automatically creates columns that are at least 280px wide */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding-top: 15px;
 }
 
+/* Make each category look like a neat card */
+.skill-category {
+    background-color: #ffffff; /* Pure white */
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #eaeaea; /* Very faint border */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Soft floating shadow */
+    margin-bottom: 0; 
+    transition: transform 0.2s ease; /* Optional: smooth animation */
+}
+
+/* Optional: slightly lift the card when hovering */
+.skill-category:hover {
+    transform: translateY(-6px);
+}
+
+/* Dark mode adjustments for the elevated cards */
+.dark-mode .skill-category {
+    background-color: #1e1e1e; /* Slightly lighter than the dark background */
+    border: 1px solid #2a2a2a;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Style the title inside the card */
 .skill-category h3 {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 15px;
     color: var(--text-color);
-    opacity: 0.9;
+    border-bottom: 2px solid var(--primary-color); 
+    padding-bottom: 8px;
+    display: inline-block;
 }
 
 .skill-tags {
@@ -278,4 +319,56 @@ footer {
     .hero-buttons {
         justify-content: center;
     }
+}
+
+/* Expand/Collapse Section Styles (Seamless & Aligned) */
+.skills-details {
+    background-color: transparent; /* Removes the grey background */
+    border: none;                  /* Removes the box border */
+    padding: 0;                    /* Removes padding so text aligns perfectly left! */
+    margin-bottom: 20px;
+}
+
+.dark-mode .skills-details {
+    border: none;
+}
+
+.skills-details summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    list-style: none;
+    border-bottom: 1px solid #ddd; /* Adds a clean underline instead of a box */
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.dark-mode .skills-details summary {
+    border-bottom: 1px solid #333;
+}
+
+.skills-details summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Ensure headers inside the summary match the rest of the page */
+.skills-details summary h2,
+.skills-details summary h3 {
+    margin: 0; 
+}
+
+/* Arrow icon */
+.skills-details summary .icon {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+.skills-details[open] summary .icon {
+    transform: rotate(180deg);
+}
+
+.skills-content {
+    margin-top: 10px;
 }
