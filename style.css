@@ -372,3 +372,59 @@ footer {
 .skills-content {
     margin-top: 10px;
 }
+
+/* --- Collapsible Job Responsibilities --- */
+.job-details {
+    margin-top: 8px;
+}
+
+/* Aligns everything to the left */
+.job-details summary {
+    display: flex;
+    justify-content: flex-start; /* Keeps it on the left */
+    align-items: center;
+    gap: 8px; /* Adds perfect spacing between arrow and text */
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    cursor: pointer;
+    list-style: none;
+    font-weight: bold;
+    opacity: 0.9;
+    transition: opacity 0.2s;
+}
+
+.job-details summary:hover {
+    opacity: 1;
+}
+
+.job-details summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Locks the arrow width so your text NEVER shifts */
+.job-details summary .job-icon {
+    font-size: 0.75rem;
+    display: inline-block;
+    width: 15px; /* The magic fix: fixed width */
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+/* Rotates the ▶ 90 degrees so it points Down (▼) when opened */
+.job-details[open] summary .job-icon {
+    transform: rotate(90deg);
+}
+
+/* Style the bullet points */
+.job-details ul {
+    margin-top: 10px;
+    margin-bottom: 0;
+    padding-left: 28px; /* Indents bullets nicely past the arrow */
+    font-size: 0.95rem;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.job-details ul li {
+    margin-bottom: 6px;
+}
