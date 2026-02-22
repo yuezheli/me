@@ -428,3 +428,14 @@ footer {
 .job-details ul li {
     margin-bottom: 6px;
 }
+
+/* --- iOS Safari Fix: Aggressively hide default browser arrows --- */
+details summary {
+    list-style: none !important;
+    list-style-type: none !important;
+}
+
+details summary::-webkit-details-marker {
+    display: none !important;
+}
+
